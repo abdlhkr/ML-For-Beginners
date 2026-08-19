@@ -1,0 +1,6 @@
+    ```text
+    scikit-learn
+    pandas
+    numpy
+    flask
+    ```
