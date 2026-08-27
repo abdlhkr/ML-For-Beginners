@@ -57,63 +57,63 @@ The first thing to install is [imblearn](https://imbalanced-learn.org/stable/). 
 
 1. To install `imblearn`, run `pip install`, like so:
 
-    ```python
-    pip install imblearn
-    ```
+```python
+pip install imblearn
+```
 
 1. Import the packages you need to import your data and visualize it, also import `SMOTE` from `imblearn`.
 
-    ```python
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    import matplotlib as mpl
-    import numpy as np
-    from imblearn.over_sampling import SMOTE
-    ```
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import numpy as np
+from imblearn.over_sampling import SMOTE
+```
 
-    Now you are set up to read import the data next.
+Now you are set up to read import the data next.
 
 1. The next task will be to import the data:
 
-    ```python
-    df  = pd.read_csv('../data/cuisines.csv')
-    ```
+```python
+df  = pd.read_csv('../data/cuisines.csv')
+```
 
-   Using `read_csv()` will read the content of the csv file _cusines.csv_ and place it in the variable `df`.
+Using `read_csv()` will read the content of the csv file _cusines.csv_ and place it in the variable `df`.
 
 1. Check the data's shape:
 
-    ```python
-    df.head()
-    ```
+```python
+df.head()
+```
 
-   The first five rows look like this:
+The first five rows look like this:
 
-    ```output
-    |     | Unnamed: 0 | cuisine | almond | angelica | anise | anise_seed | apple | apple_brandy | apricot | armagnac | ... | whiskey | white_bread | white_wine | whole_grain_wheat_flour | wine | wood | yam | yeast | yogurt | zucchini |
-    | --- | ---------- | ------- | ------ | -------- | ----- | ---------- | ----- | ------------ | ------- | -------- | --- | ------- | ----------- | ---------- | ----------------------- | ---- | ---- | --- | ----- | ------ | -------- |
-    | 0   | 65         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
-    | 1   | 66         | indian  | 1      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
-    | 2   | 67         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
-    | 3   | 68         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
-    | 4   | 69         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 1      | 0        |
-    ```
+```output
+|     | Unnamed: 0 | cuisine | almond | angelica | anise | anise_seed | apple | apple_brandy | apricot | armagnac | ... | whiskey | white_bread | white_wine | whole_grain_wheat_flour | wine | wood | yam | yeast | yogurt | zucchini |
+| --- | ---------- | ------- | ------ | -------- | ----- | ---------- | ----- | ------------ | ------- | -------- | --- | ------- | ----------- | ---------- | ----------------------- | ---- | ---- | --- | ----- | ------ | -------- |
+| 0   | 65         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
+| 1   | 66         | indian  | 1      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
+| 2   | 67         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
+| 3   | 68         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 0      | 0        |
+| 4   | 69         | indian  | 0      | 0        | 0     | 0          | 0     | 0            | 0       | 0        | ... | 0       | 0           | 0          | 0                       | 0    | 0    | 0   | 0     | 1      | 0        |
+```
 
 1. Get info about this data by calling `info()`:
 
-    ```python
-    df.info()
-    ```
+```python
+df.info()
+```
 
-    Your out resembles:
+Your out resembles:
 
-    ```output
-    <class 'pandas.core.frame.DataFrame'>
-    RangeIndex: 2448 entries, 0 to 2447
-    Columns: 385 entries, Unnamed: 0 to zucchini
-    dtypes: int64(384), object(1)
-    memory usage: 7.2+ MB
-    ```
+```output
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2448 entries, 0 to 2447
+Columns: 385 entries, Unnamed: 0 to zucchini
+dtypes: int64(384), object(1)
+memory usage: 7.2+ MB
+```
 
 ## Exercise - learning about cuisines
 
@@ -121,39 +121,39 @@ Now the work starts to become more interesting. Let's discover the distribution 
 
 1. Plot the data as bars by calling `barh()`:
 
-    ```python
-    df.cuisine.value_counts().plot.barh()
-    ```
+```python
+df.cuisine.value_counts().plot.barh()
+```
 
-    ![cuisine data distribution](images/cuisine-dist.png)
+![cuisine data distribution](images/cuisine-dist.png)
 
-    There are a finite number of cuisines, but the distribution of data is uneven. You can fix that! Before doing so, explore a little more. 
+There are a finite number of cuisines, but the distribution of data is uneven. You can fix that! Before doing so, explore a little more. 
 
 1. Find out how much data is available per cuisine and print it out:
 
-    ```python
-    thai_df = df[(df.cuisine == "thai")]
-    japanese_df = df[(df.cuisine == "japanese")]
-    chinese_df = df[(df.cuisine == "chinese")]
-    indian_df = df[(df.cuisine == "indian")]
-    korean_df = df[(df.cuisine == "korean")]
-    
-    print(f'thai df: {thai_df.shape}')
-    print(f'japanese df: {japanese_df.shape}')
-    print(f'chinese df: {chinese_df.shape}')
-    print(f'indian df: {indian_df.shape}')
-    print(f'korean df: {korean_df.shape}')
-    ```
+```python
+thai_df = df[(df.cuisine == "thai")]
+japanese_df = df[(df.cuisine == "japanese")]
+chinese_df = df[(df.cuisine == "chinese")]
+indian_df = df[(df.cuisine == "indian")]
+korean_df = df[(df.cuisine == "korean")]
 
-    the output looks like so:
+print(f'thai df: {thai_df.shape}')
+print(f'japanese df: {japanese_df.shape}')
+print(f'chinese df: {chinese_df.shape}')
+print(f'indian df: {indian_df.shape}')
+print(f'korean df: {korean_df.shape}')
+```
 
-    ```output
-    thai df: (289, 385)
-    japanese df: (320, 385)
-    chinese df: (442, 385)
-    indian df: (598, 385)
-    korean df: (799, 385)
-    ```
+the output looks like so:
+
+```output
+thai df: (289, 385)
+japanese df: (320, 385)
+chinese df: (442, 385)
+indian df: (598, 385)
+korean df: (799, 385)
+```
 
 ## Discovering ingredients
 
@@ -161,71 +161,71 @@ Now you can dig deeper into the data and learn what are the typical ingredients 
 
 1. Create a function `create_ingredient()` in Python to create an ingredient dataframe. This function will start by dropping an unhelpful column and sort through ingredients by their count:
 
-    ```python
-    def create_ingredient_df(df):
-        ingredient_df = df.T.drop(['cuisine','Unnamed: 0']).sum(axis=1).to_frame('value')
-        ingredient_df = ingredient_df[(ingredient_df.T != 0).any()]
-        ingredient_df = ingredient_df.sort_values(by='value', ascending=False,
-        inplace=False)
-        return ingredient_df
-    ```
+```python
+def create_ingredient_df(df):
+    ingredient_df = df.T.drop(['cuisine','Unnamed: 0']).sum(axis=1).to_frame('value')
+    ingredient_df = ingredient_df[(ingredient_df.T != 0).any()]
+    ingredient_df = ingredient_df.sort_values(by='value', ascending=False,
+    inplace=False)
+    return ingredient_df
+```
 
-   Now you can use that function to get an idea of top ten most popular ingredients by cuisine.
+Now you can use that function to get an idea of top ten most popular ingredients by cuisine.
 
 1. Call `create_ingredient()` and plot it calling `barh()`:
 
-    ```python
-    thai_ingredient_df = create_ingredient_df(thai_df)
-    thai_ingredient_df.head(10).plot.barh()
-    ```
+```python
+thai_ingredient_df = create_ingredient_df(thai_df)
+thai_ingredient_df.head(10).plot.barh()
+```
 
-    ![thai](images/thai.png)
+![thai](images/thai.png)
 
 1. Do the same for the japanese data:
 
-    ```python
-    japanese_ingredient_df = create_ingredient_df(japanese_df)
-    japanese_ingredient_df.head(10).plot.barh()
-    ```
+```python
+japanese_ingredient_df = create_ingredient_df(japanese_df)
+japanese_ingredient_df.head(10).plot.barh()
+```
 
-    ![japanese](images/japanese.png)
+![japanese](images/japanese.png)
 
 1. Now for the chinese ingredients:
 
-    ```python
-    chinese_ingredient_df = create_ingredient_df(chinese_df)
-    chinese_ingredient_df.head(10).plot.barh()
-    ```
+```python
+chinese_ingredient_df = create_ingredient_df(chinese_df)
+chinese_ingredient_df.head(10).plot.barh()
+```
 
-    ![chinese](images/chinese.png)
+![chinese](images/chinese.png)
 
 1. Plot the indian ingredients:
 
-    ```python
-    indian_ingredient_df = create_ingredient_df(indian_df)
-    indian_ingredient_df.head(10).plot.barh()
-    ```
+```python
+indian_ingredient_df = create_ingredient_df(indian_df)
+indian_ingredient_df.head(10).plot.barh()
+```
 
-    ![indian](images/indian.png)
+![indian](images/indian.png)
 
 1. Finally, plot the korean ingredients:
 
-    ```python
-    korean_ingredient_df = create_ingredient_df(korean_df)
-    korean_ingredient_df.head(10).plot.barh()
-    ```
+```python
+korean_ingredient_df = create_ingredient_df(korean_df)
+korean_ingredient_df.head(10).plot.barh()
+```
 
-    ![korean](images/korean.png)
+![korean](images/korean.png)
 
 1. Now, drop the most common ingredients that create confusion between distinct cuisines, by calling `drop()`: 
 
-   Everyone loves rice, garlic and ginger!
+Everyone loves rice, garlic and ginger!
 
-    ```python
-    feature_df= df.drop(['cuisine','Unnamed: 0','rice','garlic','ginger'], axis=1)
-    labels_df = df.cuisine #.unique()
-    feature_df.head()
-    ```
+```python
+feature_df= df.drop(['cuisine','Unnamed: 0','rice','garlic','ginger'], axis=1)
+labels_df = df.cuisine #.unique()
+feature_df.head()
+```
 
 ## Balance the dataset
 
@@ -233,54 +233,54 @@ Now that you have cleaned the data, use [SMOTE](https://imbalanced-learn.org/dev
 
 1. Call `fit_resample()`, this strategy generates new samples by interpolation.
 
-    ```python
-    oversample = SMOTE()
-    transformed_feature_df, transformed_label_df = oversample.fit_resample(feature_df, labels_df)
-    ```
+```python
+oversample = SMOTE()
+transformed_feature_df, transformed_label_df = oversample.fit_resample(feature_df, labels_df)
+```
 
-    By balancing your data, you'll have better results when classifying it. Think about a binary classification. If most of your data is one class, a ML model is going to predict that class more frequently, just because there is more data for it. Balancing the data takes any skewed data and helps remove this imbalance. 
+By balancing your data, you'll have better results when classifying it. Think about a binary classification. If most of your data is one class, a ML model is going to predict that class more frequently, just because there is more data for it. Balancing the data takes any skewed data and helps remove this imbalance. 
 
 1. Now you can check the numbers of labels per ingredient:
 
-    ```python
-    print(f'new label count: {transformed_label_df.value_counts()}')
-    print(f'old label count: {df.cuisine.value_counts()}')
-    ```
+```python
+print(f'new label count: {transformed_label_df.value_counts()}')
+print(f'old label count: {df.cuisine.value_counts()}')
+```
 
-    Your output looks like so:
+Your output looks like so:
 
-    ```output
-    new label count: korean      799
-    chinese     799
-    indian      799
-    japanese    799
-    thai        799
-    Name: cuisine, dtype: int64
-    old label count: korean      799
-    indian      598
-    chinese     442
-    japanese    320
-    thai        289
-    Name: cuisine, dtype: int64
-    ```
+```output
+new label count: korean      799
+chinese     799
+indian      799
+japanese    799
+thai        799
+Name: cuisine, dtype: int64
+old label count: korean      799
+indian      598
+chinese     442
+japanese    320
+thai        289
+Name: cuisine, dtype: int64
+```
 
-    The data is nice and clean, balanced, and very delicious! 
+The data is nice and clean, balanced, and very delicious! 
 
 1. The last step is to save your balanced data, including labels and features, into a new dataframe that can be exported into a file:
 
-    ```python
-    transformed_df = pd.concat([transformed_label_df,transformed_feature_df],axis=1, join='outer')
-    ```
+```python
+transformed_df = pd.concat([transformed_label_df,transformed_feature_df],axis=1, join='outer')
+```
 
 1. You can take one more look at the data using `transformed_df.head()` and `transformed_df.info()`. Save a copy of this data for use in future lessons:
 
-    ```python
-    transformed_df.head()
-    transformed_df.info()
-    transformed_df.to_csv("../data/cleaned_cuisines.csv")
-    ```
+```python
+transformed_df.head()
+transformed_df.info()
+transformed_df.to_csv("../data/cleaned_cuisines.csv")
+```
 
-    This fresh CSV can now be found in the root data folder.
+This fresh CSV can now be found in the root data folder.
 
 ---
 

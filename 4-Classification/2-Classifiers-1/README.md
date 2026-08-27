@@ -61,7 +61,7 @@ Assuming you completed [Lesson 1](../1-Introduction/README.md), make sure that a
 1. Drop that `Unnamed: 0` column and the `cuisine` column, calling `drop()`. Save the rest of the data as trainable features:
 
     ```python
-    cuisines_feature_df = cuisines_df.drop(['Unnamed: 0', 'cuisine'], axis=1)
+cuisines_feature_df = cuisines_df.drop(['Unnamed: 0', 'cuisine'], axis=1)
     cuisines_feature_df.head()
     ```
 
